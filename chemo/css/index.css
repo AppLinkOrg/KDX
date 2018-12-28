@@ -1,0 +1,109 @@
+
+.flex-row {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.flex-3 {
+    flex:4;
+}
+.flex-4 {
+    flex:5;
+}
+.center {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 5%;
+    margin-bottom:10px;text-align: center;font-size:12px;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #aaaaaa;
+    margin-bottom: 12px;
+}
+
+.pic {
+    width: 34vw;
+    height: 27vw;
+    margin-right: 20px;
+}
+
+.title {
+   margin-top: 8px;
+}
+.title p{
+    font-size: 15px;
+    max-height: 26px;
+    line-height: 26px;
+   font-weight: 400;
+    font-family: '\5FAE\8F6F\96C5\9ED1'
+}
+.summary {
+    font-size: 13px;
+    color: #b2b2b2;
+    height: 36px;
+    margin-top: 10px;
+}
+
+.twoline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.banner{ box-sizing: border-box;padding: 0px 5px;margin-bottom: 15px;}
+html,body{background: #efeff1}
+.listCent{ box-sizing: border-box;padding: 0px 2%;}
+.listBox{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    margin-bottom:15px;
+    padding:1.5%;
+}
+.list{padding: 10px 10px; background: #fff}
+.copBox{box-sizing: border-box;}
+.copBox .title{padding: 0px 0px}
+.copBox .cop{font-size: 12px;box-sizing: border-box;}
+.top{background: #fff;padding-bottom:5px;margin-bottom:15px;padding-top: 5px}
+.videoText .cop p{height: auto;width: 100%;line-height: 20px;color: #727171}
+.cop p{height: 40px;width: 100%;line-height: 20px;color: #727171}
+p{margin: 0px}
+.text01 {
+    width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    -moz-text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.text02 {
+    width:100%;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.red{color: #fff;background: #d80c18;padding: 2px 5px;margin-right:5px; }
+.star{color: #f8d351;display: inline-block;width: 15px;height: 15px;position: relative;top: 1px}
+.star img {;position: absolute;top: 0px}
+.imgBox{width: 100%}
+img{max-width: 100%}
+.userName{position: relative;}
+.address{position: absolute;right:0px;top: 0px;font-size: 12px;color: #d80c18;border: 1px solid #ffb82f;padding: 2px 5px 1px 5px;-webkit-transform:scale(0.7)}
+.input{width: 100%}
+.input input{border:  0px none ;background: none;border: #e5e5e5 1px solid ;border-radius: 20px;box-sizing: border-box;padding-left:30px;height: 35px;line-height: 40px;
+    background: url(../img/index/sech.png) no-repeat;background-size: 20px 23px;background-position: 10px 7px;width: 100%}
+.input input:focus{
+
+}
+.bot{width: 85%; max-width: 100px;height: 35px;line-height: 35px;background: #d80c18;color: #fff;margin: auto;border-radius: 20px;font-size: 14px}

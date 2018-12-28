@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="Generator" content="APPNAME v2.88">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>注册信息</title>
+    <script type="text/javascript" src="themes/default/script/jquery.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript">
+        // $(function () {
+        //     AjaxInitForm('regFormBox', 'btnLogin', 'msgtip');
+        // })
+    </script>
+    <link href="themes/default/style/base.css" rel="stylesheet" type="text/css">
+    <link href="themes/default/style/style.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=EC_CHARSET">
+</head>
+<body style="background-color: #2d3132;">
+<style>
+    .loginbox{position:absolute;}
+    .regbox{position:absolute;}
+</style>
+<div id="ad" class="logindiv_bg" style="margin-top: 0"><img src="themes/default/images/regirst.jpg" class="p100"></div>
+<div class="regbox">
+    <div class="loginbox_logo">
+        <!--<img src="themes/default/images/regirst.jpg" alt="" class="p100">-->
+        <p>欢迎注册！</p>
+    </div>
+    <form id="regFormBox">
+        <div class="bx"><input type="text" placeholder="请填写姓名" name="name"></div>
+        <div class="bx">
+            <input type="text" placeholder="请填写手机号" name="mobile">
+        </div>
+        <div class="bx"><input type="password" placeholder="请填写密码" name="password"></div>
+        <div class="bx"><input type="text" placeholder="请填写车牌号" name="carId"></div>
+        <div class="bx"><input type="text" placeholder="请填写地址" name="address"></div>
+        <div class="lack">
+            <input type="button" value="注册" id="btnLogin" onclick="reg()"><font color="red" id="msgtip" class="msgtip"></font>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var wait=100;
+    var play;
+    function time(o) {
+        if (wait == 0) {
+            $(o).removeAttr("disabled");
+            $(o).val("获取验证码");
+            wait = 100;
+            $(o).css('background','#ceb78b');
+            play = window.clearInterval(play);
+        } else {
+            $(o).css('background','#ceb78b');
+            $(o).attr("disabled", true);
+            $(o).val("(" + wait + ")秒");
+            wait--;
+        }
+    }
+    function times(o){
+        var m = $('input[name="mobile"]').val();
+        if(!m.match(/^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/)){
+            alert('手机号码不正确');
+        }else{
+            $.get('register.php?action=sendsms&m='+m,function(result){
+                if(result.length > 3){
+                    alert(result);
+                }else{
+                    play = setInterval(function() {
+                        time(o)
+                    },1000);
+                }
+            });
+        }
+    }
+
+    function reg(){
+        var u = $('input[name="mobile"]').val(),
+          p = $('input[name="password"]').val(),
+         name = $('input[name="name"]').val(),
+        carno = $('input[name="carId"]').val(),
+        address = $('input[name="address"]').val();
+        if(!u.match(/^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/)){
+            alert('手机号码不正确');
+        return
+        }
+        var Parma={
+            name:name || '',
+            password:p||"",
+            mobile:u || '',
+            carno:carno||'',
+            address:address|| ''
+        }
+      action.register(Parma,function (res) {
+          console.log(res);
+          if(res.code==0){
+              window.location = 'thankYou.html'
+          }else {
+              alert(res.result)
+          }
+          //
+      })
+
+    }
+</script>
+
+</body>
+<script language="javascript" type="text/javascript" src="tongji.js"></script>
+</html>

@@ -1,0 +1,505 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Generator" content="APPNAME v2.88" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />    
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+     <style type="text/css">
+       
+        #l-map{height:300px;width:500px;}
+ 
+     </style>
+10     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Xy40gOpPvYM7GMUywP7G6BCqC2OsPqGk"></script>
+
+	<title>北极光车居膜</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="animated_favicon.gif" type="image/gif">
+	<script type="text/javascript" src="themes/default/script/jquery.js"></script>
+	
+
+	<!--api test-->
+	<script src="js/api.config.js"></script>
+<script src="js/cskin.js"></script>
+<script src="js/brand.js"></script>
+<script src="js/example.js"></script>
+<script src="js/series.js"></script>
+<script src="js/store.js"></script>
+
+	<link href="themes/default/style/base.css" rel="stylesheet" type="text/css">
+	<link href="themes/default/style/style.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+
+.price_pop{
+	border-top: 3px solid #ceb78a;
+}
+		.bottoms{
+			display:block;
+			overflow:hidden;
+			height: 50px ;
+			width: 100%;
+			background: #fff;
+		}
+
+		a.idsyuyue{
+			display: block;
+			height: 50px;
+			background: #cc0000;
+			line-height: 50px;
+			text-align: center;
+			color:#fff;
+
+		}
+
+		.reseacher{
+			display: block;
+			height: 50px;
+			background: #000;
+			line-height: 50px;
+			text-align: center;
+			color:#fff;
+
+		}
+.price_pop_close{
+	top:10px;
+}
+
+		.bottoms{
+			position: fixed;
+			bottom: 0;
+		}
+		.vc_pd{
+			padding:0 12px;
+		}
+		.flash .in {
+			width: 100%;
+			height: auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#info .tt {
+			position: absolute;
+			font-size: 16px;
+			color: rgba(255,255,255,.8);
+			font-weight: bold;
+			padding: 5px;
+			top:20px;
+			left:20px;
+			z-index: 2;
+		}
+.price_pop_cont {
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+
+}
+.price_pop_cont iframe {
+
+}
+
+	</style>
+</head>
+<script>
+function init(){    
+
+ var input="";
+    var store=new StoreApi();
+	var selectorBrand = document.getElementById("province");  
+  var selectorBrandOpts = selectorBrand.options;  
+  
+        try{
+      store.provicelist(input,function(data){
+		var jsData=JSON.parse(data)
+		
+        for(var i=0,l=jsData.length;i<l;i++){
+			selectorBrandOpts.add(new Option(jsData[i].province,jsData[i].provinceid)); 
+			
+		 }
+      });
+    }catch(e){
+      alert(e.message );
+      return;
+    }
+	
+  
+ 
+}  
+</script>
+<div class="price_pop dis_n " id="idpricepop">
+	<div class="price_pop_div" style=" padding: 0;">
+		<div class="price_pop_cont"  >
+
+				<iframe id="idiframes" style="border: 0;width: 100%;overflow-y: scroll; height: 1800px;" src="">
+
+
+				</iframe>
+
+
+
+		</div>
+		<div class="price_pop_close">
+			<a href="javascript:;"><img src="themes/default/images/price_close.png" alt=""></a>
+		</div>
+
+
+	</div>
+	<div class="bottoms">
+	
+	
+	</div>
+	
+
+</div>
+</div>
+<body id="pro" onload=init()>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<link href="themes/default/style/style_ow.css?v=2.2" rel="stylesheet">
+<link href="themes/default/style/bootstrap.min.css?v=2.2" rel="stylesheet">
+<link href="themes/default/style/style_new.css?v=2.2" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/TouchSlide.1.1.js"></script>
+<script src="themes/default/js/jquery90f9.js"></script>
+<script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+<div class="ip_top" id="ip_top"     data-clipboard-text="1516165151" data-clipboard-action="copy">
+
+
+
+
+    <div class="breezy-header">
+        
+        <div class="breezy-logo-wrapper">
+            
+            <div class="breezy-logo">
+                <a href="http://www.china-zoce.com/index.aspx/">
+                   
+            </div>
+            
+        </div>
+        
+    </div>
+
+    
+    
+
+    
+    <div class="morph-main-menu-button-wrapper">
+        <div class="morph-main-menu-button">
+            <div class="morph-main-menu-button-middle"></div>
+        </div>
+    </div>
+    
+
+    
+    <div class="morph-main-wrapper">
+        <div class="morph-main-wrapper-inner">
+            <div class="morph-main">
+                <div class="morph-heading-wrapper">
+                    <div class="morph-heading-inner">
+                        <div class="morph-heading-text" id="idwlcname">
+                            北极光欢迎您！</div>
+                        <div class="morph_login_btn" id="idloinsp">
+
+                        </div>
+                        <div style="position: absolute;bottom: 35px;left: 21px">
+                            <img src="themes/default/images/beijilogo.png" style="width:50px;height: 50px ">
+                        </div>
+                        <div class="morph_login_grzx" id="login_sps">
+                            <div class="morph_login_grzx_tx"><img id="idheaders" src="./img/login_tx.jpg" alt="" class="p100"></div>
+                            <div class="morph_login_grzx_xx">
+                                <p class="morph_login_grzx_xx_p" id="idphones">0</p>
+                                <div class="morph_login_grzx_xx_div">
+                                    <span class="morph_login_grzx_xx_span1" id="idlever">会员</span>
+                                    <span class="morph_login_grzx_xx_span2" id="idpoints">积分 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="morph-heading-overlay"></div>
+                <div class="morph-heading-image">
+
+                </div>
+                <div class="morph-menu-wrapper">
+                    <div class="morph-by-bonfire">
+                        <ul id="menu-main-menu" class="menu">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="index.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_0.png" alt=""></i>
+                                    首页
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="productinfo.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_1.png" alt=""></i>
+                                    产品介绍
+                                </a>
+                            </li>
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="store.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_3.png" alt=""></i>
+                                    门店查询
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="store.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_4.png" alt=""></i>
+                                    预约体验
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="price.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_5.png" alt=""></i>
+                                    产品报价
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="warranty.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_6.png" alt=""></i>
+                                    质保查询
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="history.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_11.png" alt=""></i>
+                                    品牌历史
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="schoolCourse.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_13.png" alt=""></i>
+                                    光谱学院
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-55">
+                                <a href="register.html">
+                                    <i class="menu-item-type-custom_i"><img src="themes/default/images/n_icon_14.png" alt=""></i>
+                                    注册
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div class="morph-main-background">
+    </div>
+    
+
+    
+    <div class="morph-background-overlay"></div>
+   
+
+</div>
+
+ <script type="text/javascript">
+     // 百度地图API功能
+     var map = new BMap.Map("l-map");            // 创建Map实例
+     map.centerAndZoom(new BMap.Point(120.188287,30.194381), 11);
+     var local = new BMap.LocalSearch(map, {
+         renderOptions: {map: map}
+    });
+     local.search("这里输入想要定位的地址");// 这里输入想要定位的地址 25 
+　　</script>
+<script src="themes/default/js/morph68b3.js"></script>
+<script >
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7e6cb5394298381ecb0ed68be3fc4b3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+var height = $(window).height();
+$(".navbar-collapse").height(height);
+
+ 
+var vifloginlinks  = "/login.php?action=checklogin";
+
+ 
+
+$.get(vifloginlinks,function(data){
+
+ var redata = JSON.parse(data);
+
+console.log(redata);
+
+   if(redata.status==1){
+
+$("#idloinsp").hide();
+$("#login_sps").show();
+$("#idphones").html(redata.content.username);
+$("#idlever").html(redata.content.stypes);
+$("#idpoints").html("积分 "+redata.content.point);
+
+
+   }
+
+});
+
+
+var clipboard = new Clipboard('.copy');
+</script>
+
+<div class="pricetop">&nbsp;</div>
+<div id="info" class="vc_info">
+	
+	<div class="flash">
+	
+		  <div id="l-map"></div> // 直接通过修改div的宽高来改变实现对生成地图大小的改变
+		
+	
+
+	</div>
+	    
+		</div>
+   
+
+
+
+<div style="clear: both"></div>
+<div style="clear: both;display:block;height: 60px;"></div>
+
+	
+</div>
+<script type="text/javascript">
+
+
+// pop 
+
+
+// $("#idpricepop")
+
+var windowsheight = $(window).height()-100;
+
+$("#idiframes").css({"height":windowsheight});
+
+
+
+
+
+	var w = $(window).width();
+	var w2 = parseInt(w * 0.02);
+	/*$('#info').css('margin',w2+'px');
+	$('#info').css('padding',w2+'px');*/
+
+  
+
+	
+</script>
+<div id="info" class="vc_info">
+	
+<div id="share">
+	<a href="#top" class="top">回到顶部</a>
+    <div class="fr">
+			<img src="themes/default/images/wx.png" width="24" height="24" onClick="guide();" style="float:left; margin-right:3px;">
+            <a class="jiathis_button_tsina"><img src="themes/default/images/sina.png" width="24" height="24" style="float:left; margin-right:3px;" ></a>
+            <a class="jiathis_button_tqq"><img src="themes/default/images/qq.png" width="24" height="24" style="float:left;" ></a>
+    </div>
+</div>
+
+<div id="cover"></div>
+<div id="guide"><img src="themes/default/images/guide1.png"></div>
+
+<div class="jiathis_style_24x24" style="position:absolute; top:-30%; opacity:0;">
+    <a class="jiathis_button_tsina"></a>
+    <a class="jiathis_button_tqq"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+
+<script>
+function guide()
+{
+	var w = $(document).width();
+	var h = $(document).height();
+	$('#cover').width(w);
+	$('#cover').height(h);
+	$('#cover').show();
+	$('#guide').show();
+}
+$('#cover,#guide').click(function(){
+	$('#cover').hide();
+	$('#guide').hide();
+});
+$(document).ready(function(){
+
+   $('#info_price').hide();
+   $('#info_price2').hide();
+   $('#info_price2').hide();
+   
+
+});
+</script>
+<div id="bottom2">
+	<li>
+    	<a href="index.html">&gt; 首页</a>
+    	<a href="price.html">&gt; 北极光报价</a>
+    	
+    </li>
+    <li>
+	<a href="agent.php">&gt; 查找经销商</a>
+    	<a href="warranty.html">&gt; 查询电子质保</a>
+    </li>
+	
+</div>
+<script>
+	var w = $(window).width();
+	var w2 = parseInt(w * 0.02);
+	$('#share').css('margin-top',w2+'px');
+	$('#bottom2').css('margin-top',w2+'px');
+	$('#bottom2').css('padding-top',w2+'px');
+	$('#bottom2').css('padding-bottom',w2+'px');
+
+	var hs = parseInt($(window).height()*0.105);
+	$('#menu tr.menu').height(hs);
+
+	function downmenu()
+	{
+		if($('.menu').is(':hidden'))
+		{
+			var h = $(window).height();
+			$('#menu').height(h);
+			$('#menu').css('opacity','0.8');
+			$('tr.menu').slideDown(500);
+		}
+		else
+		{
+			var h = parseInt($(window).height()*0.06);
+			$('tr.menu').slideUp(500);
+			$('#menu').height(h);
+			$('#menu').css('opacity','0.4');
+		}
+	}
+	function upmenu()
+	{
+		var h = parseInt($(window).height()*0.06);
+		$('tr.menu').slideUp(500);
+		$('#menu').height(h);
+		$('#menu').css('opacity','0.4');
+	}
+</script>
+<img src="" width="0" height="0" /><img src="" width="0" height="0" /><script>
+	var winH = $(window).height()-54;
+	$(".price_pop").height(winH);
+	$(".price_pop_div,.price_pop_cont").height(winH-50);
+
+	$(".price_pop_close,.reseacher").click(function(){
+        $("#idiframes").attr("src","");
+		$(".price_pop").addClass("dis_n");
+	})
+</script>
+</body>
+<script language="javascript" type="text/javascript" src="tongji.js"></script>
+</html>

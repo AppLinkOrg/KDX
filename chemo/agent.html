@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Generator" content="APPNAME v2.88" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+body, html{width: 100%;height: 100%;overflow: hidden;margin:0; font-family:微软雅黑;}
+#allmap {width:100%;height: 100%;overflow: hidden; margin:0px auto; background:#000000;}
+#allmap a{color:#666666;}
+#allmap p{margin:0;line-height:1.5;font-size:13px;}
+#allmap h4{margin:0 0 5px 0;padding:0.2em 0}
+#allmap .list{margin:0;line-height:1.5;font-size:13px;}
+#allmap .search{margin-top:10px; padding-top:10px; border-top:1px #eeeeee solid;}
+#allmap .search input.keywords{width:52%; border:1px #dddddd solid; height:18px;}
+#allmap .search input.submit{width:14%; margin-left:1%; padding:0px; text-align:center; height:22px; background:#336699; color:#ffffff; border:none;}
+#tipper{display:none; position:fixed; width:80%; left:50%; margin-left:-40%; top:30%; height:autp; line-height:30px; background:#f8f8f8; border:1px #999 solid; border-radius:10px; font-size:14px; text-align:center; z-index:200; padding:20px 0px;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jRXz8nvIw26dUpLETu9tWH29"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+
+<script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+<script language="javascript" type="text/javascript" src="themes/default/js/jquery.js"></script>
+<meta charset="utf-8">
+<title>北极光车居膜</title>
+</head>
+<body>
+<div id="allmap"></div>
+<div id="tipper"></div>
+<script type="text/javascript">
+ window.onload = function () { 
+
+            console.log(getParam()); };
+   var getParam = function () { 
+
+            try{ 
+			
+            var url = window.location.href; 
+
+            var result = url.split("?")[1]; 
+
+            var keyValue = result.split("&"); 
+
+            var obj = {}; 
+			var lat="";
+			var lng="";
+			var name="";
+			var address="";
+            for (var i = 0; i < keyValue.length; i++) { 
+
+                var item = keyValue[i].split("="); 
+				if(item[0]=="lat")
+				{
+					
+					lat=item[1];
+				}
+                if(item[0]=="lng")
+				{
+				
+					lng=item[1];
+				}
+				if(item[0]=="name")
+				{
+					
+					name=item[1];
+				}
+				if(item[0]=="address")
+				{
+					address=item[1];
+				}
+            } 
+		
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(lng,lat);
+map.centerAndZoom(point, 12);
+map.enableScrollWheelZoom();
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+
+
+		  var point = new BMap.Point(lng,lat);
+		  var marker = new BMap.Marker(point);
+		  map.addOverlay(marker);
+		  var sContent =
+		  "<div align='left'>" + 
+		  "<h4>"+name+"</h4>" + 
+		  "<p>"+address+"</p>" + 
+		  "<p class='list'>";
+		   
+		  sContent += "</p><div class='search'><input type='test' id='keywords' class='keywords' name='keywords' placeholder='您的位置' /><input type='button' class='submit' value='公交' onclick='searchMap(\""+lng+"\",\""+lat+"\",\"\",\""+address+"\",1);' /><input type='button' class='submit' value='自驾' onclick='searchMap(\""+lng+"\",\""+lat+"\",\"\",\""+address+"\",2);' /><input type='button' class='submit' value='步行' onclick='searchMap(\""+lng+"\",\""+lat+"\",\"\",\""+address+"\",3);' /></div></div>";
+		 
+		  var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+		  marker.addEventListener("click", function(){          
+			  this.openInfoWindow(infoWindow);
+		  });
+
+            return obj;}catch(e){ 
+
+                console.warn("There has no param value!"); 
+
+            } 
+
+        }; 
+//var point = new BMap.Point(126.5172800000,45.7017400000);
+//var marker = new BMap.Marker(point);
+//map.addOverlay(marker);
+</script>
+</body>
+<script language="javascript" type="text/javascript" src="tongji.js"></script>
+</html>

@@ -1,0 +1,107 @@
+
+.flex-row {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.flex-3 {
+    flex:4;
+}
+.flex-4 {
+    flex:5;
+}
+.center {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 5%;
+    margin-bottom:10px;text-align: center;font-size:12px;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #aaaaaa;
+    margin-bottom: 12px;
+}
+
+.pic {
+    width: 34vw;
+    height: 27vw;
+    margin-right: 20px;
+}
+
+.title {
+
+}
+.title p{
+    font-size: 16px;
+    max-height: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    font-family: '\5FAE\8F6F\96C5\9ED1'
+}
+.summary {
+    font-size: 13px;
+    color: #b2b2b2;
+    height: 36px;
+    margin-top: 10px;
+}
+
+.twoline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.banner{ box-sizing: border-box;padding: 0px 5px;margin-bottom: 15px;}
+html,body{background: #efeff1}
+.schoolClass{}
+.listBox{
+    box-sizing: border-box;
+    margin-bottom:15px;
+    padding: 0px 5% 0 10%;
+    background: #fff;
+}
+.listBoxv{
+    box-sizing: border-box;
+    margin-bottom:15px;
+    padding: 10px 5% 15px;
+    background: #fff;
+}
+.videoTitle{line-height: 20px;width: 80%;margin:10px 0px;height: 20px;font-size: 15px }
+.list{padding: 10px 0px; }
+.copBox{box-sizing: border-box;padding-left: 8%;}
+.copBox .title{padding: 5px 0px}
+.copBox .cop{font-size: 12px;box-sizing: border-box;}
+.top{background: #fff;padding-bottom:5px;margin-bottom:15px;padding-top: 5px}
+.listCent{}
+.cop p{max-height: 40px;width: 100%;line-height: 20px;color: #727171}
+.videoText .copb p{height: auto;width: 100%;line-height: 20px;color: #727171}
+p{margin: 0px;}
+.videoBox{;line-height: 0px;position: relative; display: flex; -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;}
+.videoText{margin-top: 10px;}
+.text01 {
+    width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    -moz-text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.text02 {
+    width:100%;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+a{text-decoration: none}
+a:hover{text-decoration: none}
+
