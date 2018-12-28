@@ -334,26 +334,11 @@ var clipboard = new Clipboard('.copy');
 		<div class="ttt">系&nbsp;&nbsp;列</div>
 		<select id="idtypef" name="typef_id" onchange="datachanged(this.value,'F','idtypef','stylef_id');">
 			<option value="0">请选择系列</option>
-			<option value="3">光致变色系列</option>
-			<option value="5">全功能隔热安全系列</option>
-			<option value="1">顶级隔热系列</option>
-						<option value="2">二十周年限量纪念版</option>
-						
-						<option value="4">经典隔热系列</option>
-						
-						<option value="6">全效护肤系列</option>
 						</select>
 		
 		<div class="ttt">型&nbsp;&nbsp;号</div>
 		<select  name="stylef_id" id="stylef_id">
 			<option value="0">请选择型号</option>
-			<option value="1">GZ-70</option>
-						<option value="2">TS-75</option>
-						<option value="3">K-70S</option>
-						<option value="4">X-75</option>
-						<option value="5">C-75</option>
-						<option value="6">C-73</option>
-						<option value="7">ZYF-70</option>
 		</select>
 		</div>
 
@@ -362,29 +347,11 @@ var clipboard = new Clipboard('.copy');
 		<div class="ttt">系&nbsp;&nbsp;列</div>
 		<select id="idtypem" name="typem_id" onchange="datachanged(this.value,'B','idtypem','stylem_id');">
 			<option value="0">请选择系列</option>
-			
-					
-						<option value="3">光致变色系列</option>
-			<option value="5">全功能隔热安全系列</option>
-			<option value="1">顶级隔热系列</option>
-						<option value="2">二十周年限量纪念版</option>
-						
-						<option value="4">经典隔热系列</option>
-						
-						<option value="6">全效护肤系列</option>
 						</select>
 		
 		<div class="ttt">型&nbsp;&nbsp;号</div>
 		<select  name="stylem_id" id="stylem_id">
 			<option value="0">请选择型号</option>
-			<option value="1">TS-25</option>
-						<option value="2">X-15</option>
-						<option value="2">X-30</option>
-						<option value="3">C-15</option>
-						<option value="4">C-25</option>
-						<option value="5">ZYF-66</option>
-						<option value="6">ZYF-88</option>
-						
 		</select>
       </div>
 	 <input type="submit" value="提交" id="submit1" />
@@ -395,11 +362,17 @@ var clipboard = new Clipboard('.copy');
 		<div class="ttt">类&nbsp;&nbsp;别</div>
 		<select id="idtypes" name="type_id" >
 			<option value="0">请选择类别</option>
-			<option value="1">北极光－盾甲至尊</option>
-						<option value="4">北极光－经典传奇系列</option>
 						
 					
 						</select>
+		<div class="ttt">车&nbsp;&nbsp;型</div>
+		<select id="idchexing" name="chexing_id" >
+			<option value="0">请选择车型</option>
+
+					
+
+					</select>
+		<div class="hide">
 		<div class="ttt">品&nbsp;&nbsp;牌</div>
 		<select id="idbrands" name="brand_id" onchange="datalinkchanged(this.value,'brand','style','style_id');">
 			<option value="0">请选择品牌</option>
@@ -410,7 +383,7 @@ var clipboard = new Clipboard('.copy');
 		<div class="ttt">型&nbsp;&nbsp;号</div>
 		<select  name="style_id" id="style_id">
 			<option value="0">请选择型号</option>
-		</select>
+		</select></div>
 
       
        <input type="submit" value="提交" id="idsubmits" />
@@ -758,6 +731,7 @@ $("#submit1").click(function(){
 				
 			  
 			}catch(e){
+				console.log(e);
 			 alert(e.message );
 			  return;
 			}
@@ -776,6 +750,7 @@ $("#idsubmits").click(function(){
      
 		var branddat 	= $("#idbrands").val();
 		var cartypes	= $("#style_id").val();
+		var idchexing	= $("#idchexing").val();
 		var idtypes	= $("#idtypes").val();
 		var pricetypedata = $("#idcarpriceids").find(".active");
 
@@ -785,9 +760,14 @@ $("#idsubmits").click(function(){
         if(idtypes==0)
 	{
 		
-		alert("请选择车辆类别");
+		alert("请选择类别");
 		return;
-	}
+	}if(idchexing==0)
+	{
+		
+		alert("请选择车型");
+		return;
+	}/*
 		 if(branddat==0 ){
 				alert("请选择车辆品牌");
 				return;
@@ -796,7 +776,7 @@ $("#idsubmits").click(function(){
 				alert("请选择车辆型号");
 				return;
 
-		}
+		}*/
 		
 			if(pricetypedata.attr("data-id")==1)
 			{
@@ -814,7 +794,7 @@ $("#idsubmits").click(function(){
             var series=new SeriesApi();
 				try{
 
-			  series.quote({series_id:idtypes,brand_id:branddat,automodel_id:cartypes},function(data){
+			  series.quote({series_id:idtypes,chexing_id:idchexing},function(data){
 				  var jsData=JSON.parse(data)
 				 
 				  if(data=null || jsData==null || jsData.sumprice==0)
@@ -1041,6 +1021,24 @@ $("#idsubmits").click(function(){
 			   selectorStyleOpts.add(new Option("ZYF-70","3")); 
 			   
 		}
+		else if(id=="7"  && parent=="F")
+		{
+			  
+			  selectorStyleOpts.add(new Option("S-70","27")); 
+			   
+		}
+		//系列=全效护肤系列 and 用途=侧后档 则产品型号=ZYF-66 ZYF-88
+
+
+
+		else if(id=="7"  && parent=="B")
+		{
+			  
+			  selectorStyleOpts.add(new Option("S-15","28")); 
+			   selectorStyleOpts.add(new Option("S-20","29")); 
+			  selectorStyleOpts.add(new Option("S-70","30")); 
+			   
+		}
 
 	
 	}
@@ -1172,7 +1170,43 @@ $(document).ready(function(){
 
 	var hs = parseInt($(window).height()*0.105);
 	$('#menu tr.menu').height(hs);
+	
+	var cskin=new cskinApi();
+	cskin.catlist({},(data)=>{
+		data=JSON.parse(data);
+		for(var item of data){
 
+			$("#idtypef").append("<option value='"+item.id+"'>"+item.name+"</option>");
+			$("#idtypem").append("<option value='"+item.id+"'>"+item.name+"</option>");
+		}
+	});
+	cskin.skinlist({usetype:"F",isback:"Y"},(data)=>{
+		data=JSON.parse(data);
+		for(var item of data){
+			$("#stylef_id").append("<option value='"+item.id+"'>"+item.name+"</option>");
+		}
+	});
+	cskin.skinlist({usetype:"B",isback:"Y"},(data)=>{
+		data=JSON.parse(data);
+		for(var item of data){
+			$("#stylem_id").append("<option value='"+item.id+"'>"+item.name+"</option>");
+		}
+	});
+	
+	var api=new SeriesApi();
+	api.chexinglist({},(data)=>{
+		data=JSON.parse(data);
+		for(var item of data){
+			$("#idchexing").append("<option value='"+item.id+"'>"+item.name+"</option>");
+		}
+	});
+	api.list({},(data)=>{
+		data=JSON.parse(data);
+		for(var item of data){
+			$("#idtypes").append("<option value='"+item.id+"'>"+item.name+"</option>");
+		}
+	});
+	
 	function downmenu()
 	{
 		if($('.menu').is(':hidden'))
