@@ -344,7 +344,7 @@ var clipboard = new Clipboard('.copy');
 	<div class="flash">
 		<div class="tt"></div>
 		<div class="in">
-			<img src="themes/default/images/n0.jpg" class="n" />
+			<img id="topbanner" src="themes/default/images/n0.jpg" class="n" />
 			
 		</div>
 		<div class="blank20">dddddd</div>
@@ -690,3 +690,13 @@ $(document).ready(function(){
 </body>
 <script language="javascript" type="text/javascript" src="tongji.js"></script>
 </html>
+
+
+<script>
+    $(document).ready(function () {
+        getJSON("/page/shopquery", {}, function (data) {
+            //alert(data);
+            $("#topbanner").attr("src", uploadpath + "common/" + data.topbanner);
+        });
+    });
+</script>

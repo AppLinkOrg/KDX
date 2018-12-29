@@ -1,5 +1,26 @@
-var dataapi_link="http://cmsdev.app-link.org/alucard263096/kdx/api";//ÌîĞ´Äã×Ô¼º·şÎñÆ÷µÄ·şÎñÆ÷ÓòÃûĞÅÏ¢
+var dataapi_link="http://cmsdev.app-link.org/alucard263096/kdx/api";//ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+var uploadpath="http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/kdx/";
 
+function getJSON(api,request_json,callback){
+    $.ajax(dataapi_link+api,{
+        //æäº¤æ•°æ®çš„ç±»å‹ POST GET
+        type:'POST',
+        async:true,
+        data:request_json,
+        beforeSend:apiconfig_beforeSend, //å‘é€è¯·æ±‚
+        complete:apiconfig_complete,//è¯·æ±‚å®Œæˆ
+        crossDomain:true,
+        datatype: 'json',//xml, html, script, json, jsonp, text
+        xhrFields: {  withCredentials: true  },
+        //æˆåŠŸè¿”å›ä¹‹åè°ƒç”¨çš„å‡½æ•°             
+        success:function(data){
+            data=JSON.parse(data);
+            if(callback!=undefined){
+                callback(data);
+            }
+        }
+     });
+}
 
 var apiconfig_beforeSend=function(XHR){
 	var accesstoken=localStorage.accesstoken;
@@ -25,3 +46,20 @@ var newGuid=function()
     }
     return guid;    
 };
+
+function HtmlDecode(str) {
+    var s = "";
+    if (str.length == 0) return "";
+    s = str.replace(/&amp;/g, "&");
+    s = s.replace(/&lt;/g, "<");
+    s = s.replace(/&gt;/g, ">");
+    s = s.replace(/&nbsp;/g, " ");
+    s = s.replace(/&#39;/g, "\'");
+    s = s.replace(/&quot;/g, "\""); 
+
+
+    s = s.replace(new RegExp("\"/alucard263096/kdx/upload/", "gm"), "\"" + "https://cmsdev.app-link.org/alucard263096/kdx/upload/");
+
+
+    return s;
+  }

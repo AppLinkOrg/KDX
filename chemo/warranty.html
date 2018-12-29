@@ -266,63 +266,33 @@ $("#idpoints").html("积分 "+redata.content.point);
 var clipboard = new Clipboard('.copy');
 </script>
 
-<div id="ad"><img src="themes/default/images/n0.jpg" class="p100" /></div>
+<div id="ad"><img id="topbanner" src="themes/default/images/n0.jpg" class="p100" /></div>
 <div id="info">
 <div class="tt"><a class="tt_a" href="http://zb.china-zoce.com/" style="">电子质保</a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div class="tt"><a class="tt_a" href="http://www.china-zoce.com/zbselect.aspx" style="">质保查询</a>质保须知</div>
 
 	<div class="ttt"></div>
 		<div class="list">
-			<img src="themes/default/images/zbxz.png"  />
+			<img id="p1" src="themes/default/images/zbxz.png"  />
 			</div>
 
     <div class="tt">验收标准</div>
 
 	<div class="ttt"></div>
 		<div class="list">
-			<img src="themes/default/images/ysbz.png"  />
+			<img  id="p2" src="themes/default/images/ysbz.png"  />
 			</div>
 
     </div>
 	<div id="productlist">
-	<div class="ttt"><h1 class="chanpin_cont_h3">
+	<div class="ttt"><h1 class="chanpin_cont_h3" id="title">
 				专业施工服务点的六个判断要素
 			</h1></div>
 			<div class="list">
 			
 			</div>
           
-		<div class="ttts">
-       <p class="chanpin_cont_div_p"><b>1. 封闭的专用无尘贴膜间</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					汽车玻璃贴膜后，其中不能有任何的疵点和杂物颗粒，因此专业安装必须在封闭的专业无尘贴膜间内施工！无尘间不仅仅是有一个与外界隔离的封闭玻璃门，内部应设有水雾喷淋头和空调以达到除尘降尘作用，地面有排水地沟和专用涂料，进一步起到降尘作用。
-				</p>
-				 <p class="chanpin_cont_div_p"><b>2. 专业工具</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					不专业的工具如铁制的挤水铲不能把水挤干净，留下水泡、气泡，更可能会刮伤膜面；炭钢刀片可能会划伤高档汽车玻璃……不专业的店通常使用国产或自制的非专业工具，材质粗糙，功能模糊，往往一物多用，专业的贴膜工具多数从美国原装进口，分类清晰，样子精致，易于辩认。
-				</p>
-				<p class="chanpin_cont_div_p"><b>3. 弱碱性安装液</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					专业汽车膜应该使用专用贴膜清洗液和安装液，并用纯净水兑稀，使膜与玻璃达到最大粘结强度，不引起翘边、脱层的缺陷，达到长期的质保效果。非专业店却在使用家用清洁精、普通皂液和自来水，此不可能提供专业的安装和质保期。
-				</p>
-				<p class="chanpin_cont_div_p"><b>4. 用整张铺贴，膜应最大化地贴到玻璃窗的边缘</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					非专业安装师贴前后挡时，会分几段来贴，从而起不到安全防爆和美观效果。
-				</p>
-				<p class="chanpin_cont_div_p"><b>5. 安装时有防护措施</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					专业安装应该采取防护措施：防止在安装过程中刮花漆面、损伤车内装饰品、造成车内电器和音响因受潮而短路失效；避免因安装窗膜而座椅受潮损伤、仪表板表面意外刮伤或因受潮而失灵。
-				</p>
-				<p class="chanpin_cont_div_p"><b>6. 外观质量评判标准</b></p>
-	  
-<p class="chanpin_cont_div_p">
-					专业安装的汽车膜：1、在膜内不应存在疵点和杂物、膜面不能有折痕气泡划伤；聚集于膜内的污点、疵点和杂物是低质量安装的标志。2、在下摇式的车窗顶部，只应留下1-2MM的微间隙，以粗略观察不容易发现为宜。3、应该覆盖玻璃边框的黑色釉点区，不漏光，不翘边，美观协调。4、不应该存在因挤水用力不均而出现气泡等现象。（有的地方贴住，有的地方没贴住）。
-				</p>
+		<div class="ttts" id="content">
 				</div>
     
 	
@@ -426,3 +396,16 @@ $('#cover,#guide').click(function(){
 <img src="" width="0" height="0" /><img src="" width="0" height="0" /></body>
 <script language="javascript" type="text/javascript" src="tongji.js"></script>
 </html>
+
+<script src="js/api.config.js"></script>
+<script>
+    $(document).ready(function () {
+        getJSON("/page/zhibao", {}, function (data) {
+            $("#topbanner").attr("src", uploadpath + "common/" + data.topbanner);
+            $("#p1").attr("src", uploadpath + "common/" + data.p1);
+            $("#p2").attr("src", uploadpath + "common/" + data.p2);
+        	$("#title").text(data.title);
+        	$("#content").append( HtmlDecode(data.content));
+        });
+    });
+</script>
