@@ -317,7 +317,7 @@ var clipboard = new Clipboard('.copy');
 			<div class="flash">
 				<div class="tt"></div>
 				<div class="in">
-					<img src="themes/default/images/n0.jpg" class="n" />
+					<img id="topbanner" src="themes/default/images/n0.jpg" class="n" />
 
 				</div>
 				<div class="blank20">dddddd</div>
@@ -400,7 +400,12 @@ var clipboard = new Clipboard('.copy');
 
 			</div>
 
-			<div class="t_gray vc_pd">
+			<div class="t_gray vc_pd" id="desc0">
+				未列车型报价参照相似同类车型；<br />
+				本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
+				报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
+			</div>
+			<div class="t_gray vc_pd" id="desc1">
 				未列车型报价参照相似同类车型；<br />
 				本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
 				报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
@@ -453,7 +458,7 @@ var clipboard = new Clipboard('.copy');
 					</div>
 					<br />
 				</div>
-				<div class="bj_bg_2">
+				<div class="bj_bg_2"  id="desc2">
 					<div class="t_red">报价说明：</div>
 					本报价已含北极光膜施工费；原已贴膜车辆换贴北极光膜的，施工店可另收取全车旧膜除胶费600元-5座车、800元-7座车。<br />
 					*车身报价说明：上述车身报价不包含前挡，仅指侧窗及后挡部位全部贴膜的施工价格；<br />
@@ -656,11 +661,42 @@ var clipboard = new Clipboard('.copy');
 			
 			//<div id="qmtotal" class="t_red">(参考价格)合计：0</div>
 			if(count>=9){
-				$("#qmtotal").text("(参考价格)全车折扣价："+fullcarprice+"元"+", 原价："+totalamount+"元");
+				$("#qmtotal").text("全车官方指导价："+fullcarprice+"元");//+", 原价："+totalamount+"元")
 			}else{
 				$("#qmtotal").text("(参考价格)合计："+totalamount+"元");
 			}
 			//alert(totalamount);
+		}
+		function loadft(seriescskin_id){
+			var json={
+				usetype: "F"
+			};
+			if(seriescskin_id!=undefined){
+				json.seriescskin_id=seriescskin_id;
+			}
+			var cskin = new cskinApi();
+		
+			cskin.skinlist(json, (data) => {
+				data = JSON.parse(data);
+				for (var item of data) {
+					$("#stylef_id").append("<option value='" + item.id + "' cat_id='"+item.seriescskin_id+"' >" + item.name + "</option>");
+				}
+			});
+		}
+		function loadmt(seriescskin_id){
+			var json={
+				usetype: "B"
+			};
+			if(seriescskin_id!=undefined){
+				json.seriescskin_id=seriescskin_id;
+			}
+			var cskin = new cskinApi();
+			cskin.skinlist(json, (data) => {
+				data = JSON.parse(data);
+				for (var item of data) {
+					$("#stylem_id").append("<option value='" + item.id + "' cat_id='"+item.seriescskin_id+"'>" + item.name + "</option>");
+				}
+			});
 		}
 	</script>
 	<script type="text/javascript">
@@ -963,11 +999,6 @@ var clipboard = new Clipboard('.copy');
 				return;
 			}
 
-
-
-
-
-
 		});
 
 
@@ -985,10 +1016,14 @@ var clipboard = new Clipboard('.copy');
 			if (id == '0') {
 				$('#allen1').hide();
 				$('#allen0').show();
+				$('#desc1').hide();
+				$('#desc0').show();
 
 			} else {
 				$('#allen0').hide();
 				$('#allen1').show();
+				$('#desc0').hide();
+				$('#desc1').show();
 			}
 		}
 
@@ -1016,89 +1051,13 @@ var clipboard = new Clipboard('.copy');
 			var selectorStyleOpts = selectorStyle.options;
 
 			//系列=顶级隔热系列则产品型号=K-70S and 用途=前档 则产品型号=K-70S
-
-			if (id == 1) {
-
-
-				selectorStyleOpts.add(new Option("K-70S", "1"));
-
+			if(parent=="F"){
+				loadft(id);
 			}
 
-			////系列=二十周年限量纪念版 and 用途=前档 则产品型号=X-75
-			else if (id == "2" && parent == "F") {
-				selectorStyleOpts.add(new Option("X-75", "1"));
-
+			if(parent=="B"){
+				loadmt(id);
 			}
-			////系列=二十周年限量纪念版 and 用途=后档 则产品型号=X-15/X-30
-			else if (id == "2" && parent == "B") {
-				selectorStyleOpts.add(new Option("X-15", "1"));
-				selectorStyleOpts.add(new Option("X-30", "2"));
-				selectorStyleOpts.add(new Option("X-75", "3"));
-
-			}
-			//系列=光致变色系列 则产品型号=GZ-70
-			else if (id == "3") {
-
-				selectorStyleOpts.add(new Option("GZ-70", "1"));
-
-			}
-			//系列=经典隔热系列 and 用途=前档 则产品型号=C-75 C-73
-			else if (id == "4" && parent == "F") {
-
-				selectorStyleOpts.add(new Option("C-75", "1"));
-				selectorStyleOpts.add(new Option("C-73", "2"));
-
-			}
-			//系列=经典隔热系列 and 用途=侧后档 则产品型号=C-15 C-25
-			else if (id == "4" && parent == "B") {
-
-				selectorStyleOpts.add(new Option("C-15", "1"));
-				selectorStyleOpts.add(new Option("C-25", "2"));
-				selectorStyleOpts.add(new Option("C-75", "3"));
-				selectorStyleOpts.add(new Option("C-73", "4"));
-
-			}
-			//系列=全功能隔热安全系列 and 用途=前档 则产品型号=TS-75
-			else if (id == "5" && parent == "F") {
-
-				selectorStyleOpts.add(new Option("TS-75", "1"));
-
-			}
-			//系列=全功能隔热安全系列 and 用途=侧后档 则产品型号=TS-25
-			else if (id == "5" && parent == "B") {
-
-				selectorStyleOpts.add(new Option("TS-25", "1"));
-				selectorStyleOpts.add(new Option("TS-75", "2"));
-
-			}
-			//系列=全效护肤系列 and 用途=前档 则产品型号=ZYF-70
-			else if (id == "6" && parent == "F") {
-
-				selectorStyleOpts.add(new Option("ZYF-70", "1"));
-
-			}
-			//系列=全效护肤系列 and 用途=侧后档 则产品型号=ZYF-66 ZYF-88
-			else if (id == "6" && parent == "B") {
-
-				selectorStyleOpts.add(new Option("ZYF-66", "1"));
-				selectorStyleOpts.add(new Option("ZYF-88", "2"));
-				selectorStyleOpts.add(new Option("ZYF-70", "3"));
-
-			} else if (id == "7" && parent == "F") {
-
-				selectorStyleOpts.add(new Option("S-70", "27"));
-
-			}
-			//系列=全效护肤系列 and 用途=侧后档 则产品型号=ZYF-66 ZYF-88
-			else if (id == "7" && parent == "B") {
-
-				selectorStyleOpts.add(new Option("S-15", "28"));
-				selectorStyleOpts.add(new Option("S-20", "29"));
-				selectorStyleOpts.add(new Option("S-70", "30"));
-
-			}
-
-
 		}
 
 
@@ -1216,6 +1175,7 @@ var clipboard = new Clipboard('.copy');
 			$('#info_price2').hide();
 			$('#info_price2').hide();
 			$('#allen1').hide();
+			$('#desc1').hide();
 
 		});
 	</script>
@@ -1239,24 +1199,8 @@ var clipboard = new Clipboard('.copy');
 				$("#idtypem").append("<option value='" + item.id + "'>" + item.name + "</option>");
 			}
 		});
-		cskin.skinlist({
-			usetype: "F",
-			isback: "Y"
-		}, (data) => {
-			data = JSON.parse(data);
-			for (var item of data) {
-				$("#stylef_id").append("<option value='" + item.id + "'>" + item.name + "</option>");
-			}
-		});
-		cskin.skinlist({
-			usetype: "B",
-			isback: "Y"
-		}, (data) => {
-			data = JSON.parse(data);
-			for (var item of data) {
-				$("#stylem_id").append("<option value='" + item.id + "'>" + item.name + "</option>");
-			}
-		});
+		//loadft();
+		//loadmt();
 
 		var api = new SeriesApi();
 		api.chexinglist({}, (data) => {
@@ -1309,3 +1253,17 @@ var clipboard = new Clipboard('.copy');
 <script language="javascript" type="text/javascript" src="tongji.js"></script>
 
 </html>
+
+
+
+<script>
+    $(document).ready(function () {
+        getJSON("/page/price", {}, function (data) {
+            //alert(data);
+            $("#topbanner").attr("src", uploadpath + "common/" + data.topbanner);
+			$("#desc0").html(HtmlDecode(data.desc0));
+			$("#desc1").html(HtmlDecode(data.desc1));
+			$("#desc2").html(HtmlDecode(data.desc2));
+        });
+    });
+</script>
