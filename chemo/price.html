@@ -314,7 +314,7 @@ var clipboard = new Clipboard('.copy');
 		<div class="pricetop">&nbsp;</div>
 		<div id="info" class="vc_info">
 
-			<div class="flash">
+			<div class="flash" style="margin-bottom:0px;">
 				<div class="tt"></div>
 				<div class="in">
 					<img id="topbanner" src="themes/default/images/n0.jpg" class="n" />
@@ -400,20 +400,10 @@ var clipboard = new Clipboard('.copy');
 
 			</div>
 
-			<div class="t_gray vc_pd" id="desc0">
-				未列车型报价参照相似同类车型；<br />
-				本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
-				报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
-			</div>
-			<div class="t_gray vc_pd" id="desc1">
-				未列车型报价参照相似同类车型；<br />
-				本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
-				报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
-			</div>
 			<div id="info_price" class="bj_info">
 
 
-				<div class="bj_bg_1 " style="margin-top:0;">
+				<div class="bj_bg_1 " style="margin-top:0;padding-top:0px;">
 					<div class="tt">北极光报价</div>
 					<div class="search baojia_search" style="margin-bottom:20px;">
 						<div class="tttt">报价类型&nbsp;&nbsp; 窗膜询价</div>
@@ -486,7 +476,7 @@ var clipboard = new Clipboard('.copy');
 		<div id="info_price2" class="bj_info">
 
 
-			<div class="bj_bg_1 " style="margin-top:0;">
+			<div class="bj_bg_1 " style="margin-top:0;padding-top:0px;">
 
 				<div class="search baojia_search" style="margin-bottom:20px;">
 					<div class="tttt">报价类型&nbsp;&nbsp; 漆面保护膜询价</div>
@@ -599,11 +589,21 @@ var clipboard = new Clipboard('.copy');
 						</tr>-->
 					</table>
 					<input id="qtotalprice" type="hidden" />
-					<div id="qmtotal" class="t_red">(参考价格)合计：0</div>
+					<div class="t_gray vc_pd" id="desc1" style="margin-top:10px;">
+						未列车型报价参照相似同类车型；<br />
+						本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
+						报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
+					</div>
+					<h4 id="qmtotal"  class="t_red">(参考价格)合计：0</h4>
 					<br />
 				</div>
 
 			</div>
+		</div>
+		<div class="t_gray vc_pd" id="desc0">
+			未列车型报价参照相似同类车型；<br />
+			本报价为9座以下车辆报价，9座以上车辆及客车可比照相关车型报价。<br />
+			报价系统中“车身”指侧窗及后挡，不包含前挡及天窗。
 		</div>
 		<div style="clear: both"></div>
 		<div style="clear: both;display:block;height: 60px;"></div>
@@ -933,7 +933,7 @@ var clipboard = new Clipboard('.copy');
 					//  else if(idtypes!=4 && idtypes!=5)
 					//  {
 
-					$("#qmPriceResult").html("您选择的漆面保护膜报价如下：");
+					$("#qmPriceResult").html("您选择的漆面保护膜局部报价如下：");
 					$("#qmTable").show();
 
 					$("#qmtotal").show();
